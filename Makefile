@@ -1,14 +1,13 @@
 # **************************************************************************** #
-#                                                           LE - /             #
-#                                                               /              #
-#    Makefile                                         .::    .:/ .      .::    #
-#                                                  +:+:+   +:    +:  +:+:+     #
-#    By: ninieddu <ninieddu@student.le-101.fr>      +:+   +:    +:    +:+      #
-#                                                  #+#   #+    #+    #+#       #
-#    Created: 2019/10/10 14:33:30 by ninieddu     #+#   ##    ##    #+#        #
-#    Updated: 2019/11/28 17:35:11 by ninieddu    ###    #+. /#+    ###.fr      #
-#                                                          /                   #
-#                                                         /                    #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ninieddu <ninieddu@student.42lyon.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/10 14:33:30 by ninieddu          #+#    #+#              #
+#    Updated: 2021/04/08 15:15:52 by ninieddu         ###   ########lyon.fr    #
+#                                                                              #
 # **************************************************************************** #
 
 CC		=	gcc -Wall -Wextra -Werror
@@ -50,32 +49,34 @@ SRCS	=	ft_atoi.c\
 			ft_tolower.c\
 			ft_toupper.c\
 
-BNS		=	ft_lstnew_bonus.c\
-			ft_lstadd_back_bonus.c\
-			ft_lstadd_front_bonus.c\
-			ft_lstlast_bonus.c\
-			ft_lstsize_bonus.c\
-			ft_lstclear_bonus.c\
-			ft_lstdelone_bonus.c\
-			ft_lstiter_bonus.c\
-			ft_lstmap_bonus.c\
+# BNS		=	ft_lstnew_bonus.c\
+# 			ft_lstadd_back_bonus.c\
+# 			ft_lstadd_front_bonus.c\
+# 			ft_lstlast_bonus.c\
+# 			ft_lstsize_bonus.c\
+# 			ft_lstclear_bonus.c\
+# 			ft_lstdelone_bonus.c\
+# 			ft_lstiter_bonus.c\
+# 			ft_lstmap_bonus.c\
 
-OBJ		=	$(SRCS:.c=.o) 
+OPATH	=	objs/
 
-OBJ2	=	$(BNS:.c=.o)
+OBJS	=	$(SRCS:%.c=$(OPATH)%.o)
 
-all: 	$(NAME)
+all: $(NAME)
 
-$(OBJ) : libft.h
+$(OPATH)%.o	:	%.c $(INCS)
+				$(shell mkdir -p objs)
+				$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
-bonus: $(OBJ) $(OBJ2)
-	ar rc $(NAME) $(OBJ) $(OBJ2)
+# bonus: $(OBJ) $(OBJ2)
+# 	ar rc $(NAME) $(OBJ) $(OBJ2)
 
 clean:
-	rm -f $(OBJ) $(OBJ2)
+	rm -rf $(OBJS) $(OPATH)
 
 fclean: clean
 	rm -f $(NAME)
