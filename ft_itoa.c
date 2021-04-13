@@ -6,7 +6,7 @@
 /*   By: ninieddu <ninieddu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 13:39:27 by ninieddu          #+#    #+#             */
-/*   Updated: 2021/04/13 15:17:42 by ninieddu         ###   ########lyon.fr   */
+/*   Updated: 2021/04/13 15:35:35 by ninieddu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_intlen(int n, int *len)
 {
 	while (n > 10)
 	{
-		n / 10;
+		n /= 10;
 		*len += 1;
 	}
 }

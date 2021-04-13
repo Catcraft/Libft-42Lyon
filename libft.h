@@ -6,7 +6,7 @@
 /*   By: ninieddu <ninieddu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:04:07 by ninieddu          #+#    #+#             */
-/*   Updated: 2021/04/13 15:27:35 by ninieddu         ###   ########lyon.fr   */
+/*   Updated: 2021/04/13 16:28:35 by ninieddu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 int				ft_lstsize(t_list *lst);
 int				ft_strcmp(const char *s1, const char *s2);
+void			ft_strdel(char *str);
 t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *));

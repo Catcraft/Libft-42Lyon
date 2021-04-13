@@ -6,7 +6,7 @@
 #    By: ninieddu <ninieddu@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/10 14:33:30 by ninieddu          #+#    #+#              #
-#    Updated: 2021/04/12 13:23:10 by ninieddu         ###   ########lyon.fr    #
+#    Updated: 2021/04/13 16:26:41 by ninieddu         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRCS	=	ft_atoi.c\
 			ft_tolower.c\
 			ft_toupper.c\
 			ft_strcmp.c\
+			ft_strdel.c\
 
 # BNS		=	ft_lstnew_bonus.c\
 # 			ft_lstadd_back_bonus.c\
