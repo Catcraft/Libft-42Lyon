@@ -6,14 +6,13 @@
 /*   By: ninieddu <ninieddu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:14:17 by ninieddu          #+#    #+#             */
-/*   Updated: 2021/04/12 12:41:54 by ninieddu         ###   ########lyon.fr   */
+/*   Updated: 2021/04/13 15:13:33 by ninieddu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	size_t	big;
 	int		nbr;
@@ -36,8 +35,8 @@ int		ft_atoi(const char *str)
 		big = big * 10 + (*str - 48);
 		str++;
 	}
-	if (big > 9223372036854775807)
-		return (sign == '-' ? 0 : -1);
 	nbr = big;
-	return (sign == '-' ? -nbr : nbr);
+	if (sign == '-')
+		return (-nbr);
+	return (nbr);
 }

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   ft_strtrim.c                                     .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: ninieddu <ninieddu@student.le-101.fr>      +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/05 13:37:06 by ninieddu     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/20 12:02:31 by ninieddu    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ninieddu <ninieddu@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/05 13:37:06 by ninieddu          #+#    #+#             */
+/*   Updated: 2021/04/13 15:26:26 by ninieddu         ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		is_set(char c, const char *set)
+int	is_set(char c, const char *set)
 {
 	int		i;
 
@@ -45,13 +44,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 		end_i--;
 	if (end_i < i)
 		return (ft_calloc(sizeof(char), 1));
-	if (!(trim = ft_calloc(sizeof(char), (end_i - i + 2))))
+	trim = ft_calloc(sizeof(char), (end_i - i + 2));
+	if (trim == NULL)
 		return (NULL);
-	while (i <= end_i)
+	while (i++ <= end_i)
 	{
 		trim[i2] = s1[i];
 		i2++;
-		i++;
 	}
 	return (trim);
 }

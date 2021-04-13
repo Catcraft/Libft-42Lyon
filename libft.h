@@ -6,10 +6,9 @@
 /*   By: ninieddu <ninieddu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:04:07 by ninieddu          #+#    #+#             */
-/*   Updated: 2021/04/12 16:20:16 by ninieddu         ###   ########lyon.fr   */
+/*   Updated: 2021/04/13 15:27:35 by ninieddu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -20,7 +19,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -30,7 +29,7 @@ char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strdup(const char *s1);
 char			*ft_strnstr(const char *haystack, const char *needle,
-				size_t len);
+					size_t len);
 size_t			ft_strlen(const char *s);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);

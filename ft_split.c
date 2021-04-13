@@ -1,19 +1,18 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   ft_split.c                                       .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: ninieddu <ninieddu@student.le-101.fr>      +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/05 13:38:42 by ninieddu     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 12:34:25 by ninieddu    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ninieddu <ninieddu@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/05 13:38:42 by ninieddu          #+#    #+#             */
+/*   Updated: 2021/04/13 15:22:24 by ninieddu         ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_nbr_words(char *str, char c)
+int	ft_nbr_words(char *str, char c)
 {
 	int		nbr;
 	int		i;
@@ -24,8 +23,8 @@ int		ft_nbr_words(char *str, char c)
 	{
 		while (str[i] == c)
 			i++;
-		if (str[i] != c && str[i] &&
-				(str[i + 1] == c || str[i + 1] == '\0'))
+		if (str[i] != c && str[i]
+			&& (str[i + 1] == c || str[i + 1] == '\0'))
 		{
 			i++;
 			nbr++;
@@ -37,7 +36,7 @@ int		ft_nbr_words(char *str, char c)
 	return (nbr);
 }
 
-int		ft_len(char *str, int k, char c)
+int	ft_len(char *str, int k, char c)
 {
 	int		len_word;
 
@@ -66,7 +65,8 @@ void	*ft_split_next(char *str, char **new, char c)
 		if (str[k])
 		{
 			j = 0;
-			if (!(new[i] = ft_calloc(sizeof(char), (ft_len(str, k, c) + 1))))
+			new[i] = ft_calloc(sizeof(char), (ft_len(str, k, c) + 1));
+			if (new == NULL)
 				return (NULL);
 			while (str[k] != c && str[k])
 				new[i][j++] = str[k++];
@@ -84,7 +84,8 @@ char	**ft_split(char const *s, char c)
 	str = (char *)s;
 	if (!str)
 		return (NULL);
-	if (!(new = ft_calloc(sizeof(char *), ft_nbr_words(str, c) + 1)))
+	new = ft_calloc(sizeof(char *), ft_nbr_words(str, c) + 1);
+	if (new == NULL)
 		return (NULL);
 	ft_split_next(str, new, c);
 	return (new);
