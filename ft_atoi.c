@@ -14,27 +14,31 @@
 
 int	ft_atoi(const char *str)
 {
-	size_t	big;
-	int		nbr;
-	char	sign;
-
+	long long big;
+	int nbr;
+	char sign;
+	int index = 0;
 	big = 0;
 	sign = '+';
-	while ((*str < 14 && *str > 8) || *str == 32)
-		str++;
-	if (*str == '-' || *str == '+')
+	while ((str[index] < 14 && str[index] > 8) || str[index] == 32)
+		index++;
+	if (str[index] == '-' || str[index] == '+')
 	{
-		if (*str == '-')
+		if (str[index] == '-')
 		{
-			sign = *str;
+			sign = str[index];
 		}
-		str++;
+		index++;
 	}
-	while (*str >= 48 && *str <= 57)
+	while (str[index] >= 48 && str[index] <= 57)
 	{
-		big = big * 10 + (*str - 48);
-		str++;
+	if (big > 2147483647)
+		    return (sign == '-' ? -2147483648 : 2147483647);
+		big = big * 10 + (str[index] - 48);
+		index++;
 	}
+	if (big > 2147483647)
+		return (sign == '-' ? -2147483648 : 2147483647);
 	nbr = big;
 	if (sign == '-')
 		return (-nbr);
